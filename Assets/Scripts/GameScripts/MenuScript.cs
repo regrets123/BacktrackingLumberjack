@@ -8,7 +8,7 @@ public class MenuScript : MonoBehaviour
 {
     public GameObject quitMenu;
 
-    public void SharpenImage(Image image)
+    public void SharpenImage(Image image)         //Ändrar färg på knappar när musen hovras över dem och ändrar tillbaka när musen flyttas bort
     {
         if (image.color.a < 1)
         {
@@ -20,27 +20,22 @@ public class MenuScript : MonoBehaviour
         }
     }
 
-    public void MainMenu()
+    public void MainMenu()      //Laddar huvudmenyn
     {
         SceneManager.LoadScene("MainMenu");
     }
-
-    public void QuitMenu()
-    {
-        quitMenu.active = !quitMenu.active;
-    }
-
-    public void OpenGame()
+    
+    public void OpenGame()        //Startar spelet
     {
         SceneManager.LoadScene("MainScene");
     }
 
-    public void ConfirmQuit()
+    public void ConfirmQuit()     //Ber dig bekräfta om du verkligen vill avsluta spelet
     {
         quitMenu.SetActive(!quitMenu.active);
     }
 
-    public void QuitGame()
+    public void QuitGame()  //Stänger av spelet
     {
         Application.Quit();
     }

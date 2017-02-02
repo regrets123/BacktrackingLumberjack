@@ -24,7 +24,7 @@ public class PauseScript : MonoBehaviour
         }
     }
 
-    public void PauseAndUnPause()
+    public void PauseAndUnPause()    //Pausar och unpausar allt som behöver kunna pausas i spelet samt visar och döljer muspekaren beroende på om spelet är pausat
     {
         paused = !paused;
         Cursor.visible = paused;
