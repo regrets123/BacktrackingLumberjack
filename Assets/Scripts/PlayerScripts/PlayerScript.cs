@@ -11,6 +11,9 @@ public class PlayerScript : MonoBehaviour
     int maxInventory, equippedItemIndex;
 
     [SerializeField]
+    AudioClip[] walkingSounds;
+
+    [SerializeField]
     Transform equippedItemPosition;
 
     Camera mainCam;
@@ -21,6 +24,8 @@ public class PlayerScript : MonoBehaviour
 
     CharacterController charCont;
 
+    AudioSource footsteps;
+
     Vector3 moveDirection;
 
     KeyCode[] equipKeys = new KeyCode[10] { KeyCode.Alpha0, KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, KeyCode.Alpha9 };
@@ -29,6 +34,10 @@ public class PlayerScript : MonoBehaviour
     {
         charCont = GetComponent<CharacterController>();
         mainCam = GetComponentInChildren<Camera>();
+        footsteps = GetComponent<AudioSource>();
+        footsteps.clip = walkingSounds[0];
+        footsteps.Play();
+        footsteps.Pause();
     }
 
     void Update()
@@ -36,6 +45,14 @@ public class PlayerScript : MonoBehaviour
         if (charCont.isGrounded) //Ser till att man kan röra sig, förutsatt att man står på marken
         {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            if (moveDirection.x > 0.1 || moveDirection.x < -0.1 || moveDirection.z > 0.1 || moveDirection.z < -0.1)
+            {
+                footsteps.UnPause();
+            }
+            else
+            {
+                footsteps.Pause();
+            }
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
             if (Input.GetButton("Jump"))                //Hoppar
@@ -89,6 +106,27 @@ public class PlayerScript : MonoBehaviour
                 if (index < inventory.Count)
                 {
                     EquipItem(inventory[i], index);
+                }
+            }
+        }
+        //test
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (footsteps.clip == walkingSounds[walkingSounds.Length - 1])
+            {
+                footsteps.clip = walkingSounds[0];
+            }
+            else
+            {
+                for (int i = 0; i < walkingSounds.Length; i++)
+                {
+                    if (walkingSounds[i] == footsteps.clip)
+                    {
+                        footsteps.clip = walkingSounds[i + 1];
+                        footsteps.Play();
+                        footsteps.Pause();
+                        break;
+                    }
                 }
             }
         }
