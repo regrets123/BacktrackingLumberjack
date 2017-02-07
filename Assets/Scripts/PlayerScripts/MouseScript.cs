@@ -23,7 +23,7 @@ public class MouseScript : MonoBehaviour
 
     void Update()
     {
-        if (!paused)      //Får spelaren att vända sig dit man vänder musen
+        if (!paused && !GameOver.gameOver)      //Får spelaren att vända sig dit man vänder musen
         {
             head.transform.Rotate(-Input.GetAxis("Mouse Y") * rotSpeed, 0f, 0f);
             body.transform.Rotate(0f, Input.GetAxis("Mouse X") * rotSpeed, 0f);
