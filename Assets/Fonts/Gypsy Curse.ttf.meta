@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: e970f52368bfbe54d88f2900d587808a
+timeCreated: 1486462443
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Gypsy Curse
+  fontNames:
+  - Gypsy Curse
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

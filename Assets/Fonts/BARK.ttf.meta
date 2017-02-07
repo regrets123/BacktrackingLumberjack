@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: a9768bd5217c7a2499ddcdb09adb9426
+timeCreated: 1486462439
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: BARK
+  fontNames:
+  - BARK
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
